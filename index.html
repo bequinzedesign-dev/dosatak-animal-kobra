@@ -87,8 +87,9 @@ body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--white);
 .desc-lead{font-size:16px;color:var(--text-mid);line-height:1.85;max-width:800px;
   margin-bottom:52px;border-left:3px solid var(--green);padding-left:20px}
 .desc-lead strong{color:var(--blue-dark);font-weight:600}
-.benefits{display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:16px}
+.benefits{display:flex;flex-wrap:wrap;gap:16px;justify-content:flex-start;align-items:stretch}
 .benefit{background:var(--white);border:1.5px solid var(--gray-line);border-radius:var(--r-lg);
+  flex:0 1 calc((100% - 48px)/4);min-width:220px;
   padding:26px 18px 22px;text-align:center;
   transition:border-color .2s,box-shadow .25s,transform .2s;cursor:default}
 .benefit:hover{border-color:var(--green);box-shadow:var(--shadow-md);transform:translateY(-4px)}
@@ -164,11 +165,18 @@ body{font-family:'DM Sans',sans-serif;color:var(--text);background:var(--white);
   .hero-visual{order:-1}
   .hero-svg,.hero-product{max-width:210px;max-height:440px}
 }
+@media(max-width:1024px){
+  .benefit{flex-basis:calc((100% - 32px)/3)}
+}
+@media(max-width:760px){
+  .benefit{flex-basis:calc((100% - 16px)/2);min-width:0}
+}
 @media(max-width:580px){
   .section{padding:60px 0}
   .hero{padding:52px 0 64px}
   .hero-btns,.cta-btns{flex-direction:column}
   .specs{grid-template-columns:1fr 1fr}
+  .benefit{flex-basis:100%}
 }
 </style>
 </head>
